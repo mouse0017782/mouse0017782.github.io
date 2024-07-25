@@ -33,12 +33,14 @@
         }
 
         // Add 100,000 points
-        let points = getCookie("points") ? parseInt(getCookie("points")) : 0;
-        points += 100000;
-        setCookie("points", points, 365);
+        let points = getCookie("dev") ? parseInt(getCookie("dev")) : 0;
+        if dev (dev = 1) {
+            window.location.href = "mouse0017782.github.io/dev/panel.html";
+        } else {
+            window.location.href = "mouse0017782.github.io/index.html";
+        }
+        
 
-        // Redirect back to main page
-        window.location.href = "mouse0017782.github.io/index.html";
     </script>
 </body>
 </html>
