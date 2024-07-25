@@ -1,9 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
     const pointsDisplay = document.getElementById("points");
+    const viewsDisplay = document.getElementById("views");
     const clickImage = document.getElementById("clickImage");
     
     let points = getCookie("points") ? parseInt(getCookie("points")) : 0;
+    let views = getCookie("views") ? parseInt(getCookie("views")) : 0;
+
     pointsDisplay.textContent = points;
+    viewsDisplay.textContent = views;
+
+    // Increment view count
+    views++;
+    viewsDisplay.textContent = views;
+    setCookie("views", views, 365);
 
     clickImage.addEventListener("click", function() {
         points++;
