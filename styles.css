@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: linear-gradient(rgb(0, 51, 41), rgb(51, 51, 51));
+    background-image: linear-gradient(Black, DarkGrey));
    text-color: white;
 }
 
