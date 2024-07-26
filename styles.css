@@ -10,16 +10,16 @@
 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Rubik", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-image: linear-gradient(rgb(0, 51, 41), rgb(51, 51, 51));
+   text-color: white;
 }
 
 .container {
     text-align: center;
-    text-color: white;
 }
 
