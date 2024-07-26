@@ -1,5 +1,5 @@
 #clicky {
-   border-radius: 25px;
+   border-radius: 45px;
    padding: 20px;
    width: 150px;
    height: 150px;
@@ -7,6 +7,9 @@
    margin-top: 20px;
 }
 
+#grad {
+  background-image: linear-gradient(rgb(0, 51, 41), rgb(51, 51, 51));
+}
 
 body {
     font-family: Arial, sans-serif;
