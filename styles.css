@@ -1,3 +1,13 @@
+#clicky {
+   border-radius: 25px;
+   padding: 20px;
+   width: 150px;
+   height: 150px;
+   cursor: pointer;
+   margin-top: 20px;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -11,7 +21,3 @@ body {
     text-align: center;
 }
 
-#clickImage {
-    cursor: pointer;
-    margin-top: 20px;
-}
