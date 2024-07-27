@@ -46,3 +46,33 @@ document.addEventListener("DOMContentLoaded", function() {
         return "";
     }
 });
+
+// Define the GitHub API URL for the repository
+const owner = 'mouse0017782';
+const repo = 'mouse0017782.github.io';
+const url = `https://api.github.com/repos/${owner}/${repo}`;
+
+// Make the GET request using fetch
+fetch(url)
+  .then(response => {
+    // Check if the response is successful
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    // Parse the JSON from the response
+    return response.json();
+  })
+  .then(data => {
+    // Extract the number of stars from the response
+    const stars = data.stargazers_count;
+    // Update the content of the star-count element
+    const starCountElement = document.getElementById('star-count');
+    starCountElement.textContent = `The repository ${owner}/${repo} has ${stars} stars.`;
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the fetch
+    console.error('There was a problem with the fetch operation:', error);
+    // Optionally, update the star-count element to show an error message
+    const starCountElement = document.getElementById('star-count');
+    starCountElement.textContent = 'Failed to load star count.';
+  });
