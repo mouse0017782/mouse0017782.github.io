@@ -18,34 +18,35 @@ document.addEventListener("DOMContentLoaded", function() {
         points++;
         pointsDisplay.textContent = points;
         setCookie("points", points, 365);
-    });
-    
-    if (points > 100) {
+
+        if (points > 100) {
             alert("Congratulations! You have more than 100 points!");
-
-    function setCookie(name, value, days) {
-        const d = new Date();
-        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        const expires = "expires=" + d.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
-
-    function getCookie(name) {
-        const cname = name + "=";
-        const decodedCookie = decodeURIComponent(document.cookie);
-        const ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(cname) == 0) {
-                return c.substring(cname.length, c.length);
-            }
         }
-        return "";
-    }
+    });
 });
+
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cname) == 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return "";
+}
 
 // Define the GitHub API URL for the repository
 const owner = 'mouse0017782';
@@ -67,7 +68,7 @@ fetch(url)
     const stars = data.stargazers_count;
     // Update the content of the star-count element
     const starCountElement = document.getElementById('star-count');
-    starCountElement.textContent = `The repository ${owner}/${repo} has ${stars} stars.`;
+    starCountElement.textContent = stars;
   })
   .catch(error => {
     // Handle any errors that occurred during the fetch
