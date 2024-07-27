@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function() {
         pointsDisplay.textContent = points;
         setCookie("points", points, 365);
     });
+    
+    if (points > 100) {
+            alert("Congratulations! You have more than 100 points!");
 
     function setCookie(name, value, days) {
         const d = new Date();
