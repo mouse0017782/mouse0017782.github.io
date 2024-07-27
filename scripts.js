@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     viewsDisplay.textContent = views;
     setCookie("views", views, 365);
 
-    clickImage.addEventListener("click", function() {
+    clicky.addEventListener("click", function() {
         points++;
         pointsDisplay.textContent = points;
         setCookie("points", points, 365);
