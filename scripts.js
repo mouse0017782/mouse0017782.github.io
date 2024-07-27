@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const pointsDisplay = document.getElementById("points");
     const viewsDisplay = document.getElementById("views");
-    const clickImage = document.getElementById("clickImage");
+    const clicky = document.getElementById("clicky");
     
     let points = getCookie("points") ? parseInt(getCookie("points")) : 0;
     let views = getCookie("views") ? parseInt(getCookie("views")) : 0;
