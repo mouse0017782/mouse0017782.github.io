@@ -12,7 +12,7 @@
     initial-value: 0deg;
     inherits: false;
 }
-.box::after, #clicky::before{
+.box::after, .box::before{
     content: '';
     position: absolute;
     height: 100%;
