@@ -1,4 +1,6 @@
 .box{
+    display: flex;
+    justify-content: center;
     height: 150px;
     padding: 20px;
     align-items: center;
