@@ -1,4 +1,4 @@
-#clicky {
+#clicky{
    border-radius: 20px;
    padding: 20px;
    width: 150px;
@@ -12,7 +12,7 @@
     initial-value: 0deg;
     inherits: false;
 }
-#clicky::after, #clicky::before{
+.box::after, #clicky::before{
     content: '';
     position: absolute;
     height: 100%;
@@ -26,7 +26,7 @@
     border-radius: 20px;
     animation: 3s spin linear infinite;
 }
-#clicky::before{
+.box::before{
     filter: blur(1.5rem);
     opacity: 0.5;
 }
