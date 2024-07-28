@@ -1,11 +1,13 @@
 .box{
-   font-size: 24;
-   border-radius: 20px;
-   padding: 20px;
-   width: 150px;
-   height: 150px;
-   cursor: pointer;
-   margin-top: 20px;
+    padding: 20px;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    color:white;
+    width: 300px;
+    background-color: #1c1f2b;
+    border-radius: 10px;
+    position: relative;
 }
 
 @property --angle{
