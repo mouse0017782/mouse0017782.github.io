@@ -30,7 +30,7 @@
     z-index: -1;
     padding: 5px;
     border-radius: 10px;
-    animation: 3s spin linear infinite;
+    animation: 7s spin linear infinite;
 }
 .box::before{
     filter: blur(1.5rem);
