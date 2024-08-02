@@ -1,7 +1,7 @@
 .box{
     display: flex;
     justify-content: center;
-    height: 150px;
+    height: 50px;
     padding: 20px;
     align-items: center;
     margin: 0 auto;
@@ -11,6 +11,12 @@
     background-color: #1c1f2b;
     border-radius: 10px;
     position: relative;
+    transition: height, 100ms ease-in-out;
+}
+
+.box:hover{
+    height: 150px;
+    transition: height, 100ms ease-in-out;
 }
 
 @property --angle{
@@ -23,7 +29,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(from var(--angle), rgb(149, 0, 255), transparent, rgb(0, 200, 255));
+    background-image: conic-gradient(from var(--angle), rgb(149, 0, 255), transparent, rgb(0, 200, 255), rgb(149, 0, 255));
     top: 50%;
     left: 50%;
     translate: -50% -50%;
