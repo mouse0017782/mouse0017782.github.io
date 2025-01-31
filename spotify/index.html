@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Spotify Player</title>
+<style>
+/* CSS styles remain the same */
+</style>
+</head>
+<body>
+
+<div class="player">
+  <div class="player-header">
+  </div>
+
+  <div class="song-info">
+    <h3 class="song-title" id="songTitle"></h3>
+    <p class="artist-name" id="artistName"></p>
+  </div>
+
+  <div class="player-controls">
+    <button id="prevBtn">Previous</button>
+    <button id="playBtn">Play</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="nextBtn">Next</button>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-bar-fill"></div>
+  </div>
+
+  <div class="player-footer">
+    <button id="repeatBtn">Repeat</button>
+    <button id="shuffleBtn">Shuffle</button>
+  </div>
+</div>
+
+<script>
+const clientId = '886370904fd1487c84ef64a5d5844ab4'; // Replace with your actual Client ID
+const clientSecret = 'd156a4d6eea9461a838c31501d6f00f9'; // Replace with your actual Client Secret
+const redirectUri = 'mouse0017782@github.io'; // Replace with your redirect URI
+
+// Authentication variables
+let accessToken;
+let refreshToken;
+
+// Get access token (replace with your preferred authentication method)
+function getAccessToken() {
+  // Simplified example - use a more robust authentication flow in production
+  const authOptions = {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams({
+      grant_type: 'client_credentials'
+    })
+  };
+
+  fetch('https://accounts.spotify.com/api/token', authOptions)
+    .then(response => response.json())
+    .then(data => {
+      accessToken = data.access_token;
+      // Store access token and refresh token (if applicable) for future use
+    })
+    .catch(error => {
+      console.error('Error getting access token:', error);
+    });
+}
+
+// Function to fetch current track information
+function getCurrentTrack() {
+  const headers = {
+    'Authorization': 'Bearer ' + accessToken
+  };
+
+  fetch('https://api.spotify.com/v1/me/player/currently-playing', { headers })
+    .then(response => response.json())
+    .then(data => {
+      if (data.item) {
+        document.getElementById('songTitle').textContent = data.item.name;
+        document.getElementById('artistName').textContent = data.item.artists[0].name;
+        // Update progress bar based on data.progress_ms and data.item.duration_ms
+      } else {
+        // Handle case where no track is currently playing
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching current track:', error);
+    });
+}
+
+// Function to play/pause track
+function togglePlayback() {
+  const headers = {
+    'Authorization': 'Bearer ' + accessToken
+  };
+
+  fetch('https://api.spotify.com/v1/me/player/play', { headers })
+    .then(response => {
+      if (response.ok) {
+        console.log('Playing...');
+      } else {
+        console.error('Error playing track:', response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error('Error playing track:', error);
+    });
+}
+
+// Function to pause track
+function pausePlayback() {
+  const headers = {
+    'Authorization': 'Bearer ' + accessToken
+  };
+
+  fetch('https://api.spotify.com/v1/me/player/pause', { headers })
+    .then(response => {
+      if (response.ok) {
+        console.log('Pausing...');
+      } else {
+        console.error('Error pausing track:', response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error('Error pausing track:', error);
+    });
+}
+
+// Add event listeners for buttons
+const playBtn = document.getElementById('playBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+
+playBtn.addEventListener('click', togglePlayback);
+pauseBtn.addEventListener('click', pausePlayback);
+
+// Get initial access token and fetch current track
+getAccessToken();
+getCurrentTrack();
+
+// Implement functions for prevBtn, nextBtn, repeatBtn, shuffleBtn
+// using the Spotify Web API endpoints
+
+</script>
+
+</body>
+</html>
